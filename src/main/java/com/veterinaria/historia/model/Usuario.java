@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	  private Integer usuarioId;
+	  private Integer id;
 	  private String nombre;
 	  private String apellido;
 	  @Column(name="tipo_Identificacion")
@@ -25,11 +25,25 @@ public class Usuario {
 	  
 	  
 	  
-	public Integer getUsuarioId() {
-		return usuarioId;
+	public Usuario() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	public void setUsuarioId(Integer usuarioId) {
-		this.usuarioId = usuarioId;
+	public Usuario(String nombre, String apellido, String tipoDocumento, Integer documentoIdentificacion, String estado,
+			String sexo) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.tipoDocumento = tipoDocumento;
+		this.documentoIdentificacion = documentoIdentificacion;
+		this.estado = estado;
+		this.sexo = sexo;
+	}
+	public Integer getid() {
+		return id;
+	}
+	public void setid(Integer id) {
+		this.id = id;
 	}
 	public String getNombre() {
 		return nombre;

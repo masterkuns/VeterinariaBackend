@@ -1,5 +1,6 @@
 package com.veterinaria.historia.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import com.veterinaria.historia.model.Mascota;
 import com.veterinaria.historia.repository.MascotaInterface;
+
+import javassist.expr.NewArray;
 
 @Service
 public class MascotaService implements MascotaInterface {
@@ -28,6 +31,19 @@ public class MascotaService implements MascotaInterface {
 	public List<Mascota> findAll(Sort sort) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public List <Mascota> FindAllByUsuario(Integer id){
+	List<Mascota> mascotaRespuestas=new ArrayList<>();
+	List <Mascota> mascotas=mascotaInterface.findAll();
+	for (Mascota mascota : mascotas) {
+		for(int i=0;i<mascotas.size();i++) {
+			if (mascotas.get(i).getUsuario().getid()==id)
+				mascotaRespuestas.add(mascotas.get(id));
+		}
+		
+	}
+	return mascotaRespuestas;
+		
 	}
 
 	@Override

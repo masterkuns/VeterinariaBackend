@@ -22,6 +22,20 @@ public class Mascota {
 	private Usuario usuario;
 	private String sexo;
 	
+	
+	
+	public Mascota() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Mascota(Integer mascotaId, String nombre, String raza, Usuario usuario, String sexo) {
+		super();
+		MascotaId = mascotaId;
+		this.nombre = nombre;
+		this.raza = raza;
+		this.usuario = usuario;
+		this.sexo = sexo;
+	}
 	public Integer getId() {
 		return id;
 	}

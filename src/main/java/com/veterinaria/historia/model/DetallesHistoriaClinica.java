@@ -32,6 +32,12 @@ public class DetallesHistoriaClinica {
 	@JoinColumn(name = "historia_clinica_id")
 
 	private HistoriaClinica historiaClinica;
+	
+
+	public DetallesHistoriaClinica() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public DetallesHistoriaClinica(String temperatura, double peso, double frecuenciaCardiaca,
 			double frecuenciaRespiratoria, String alimentacion, String habitad, String observacion,

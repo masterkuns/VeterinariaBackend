@@ -27,6 +27,17 @@ public class HistoriaClinica {
 
 	private Date fechaCreacion;
 
+	public HistoriaClinica() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public HistoriaClinica(Mascota mascota, Date fechaCreacion) {
+		super();
+		this.mascota = mascota;
+		this.fechaCreacion = fechaCreacion;
+	}
+
 	public Integer getId() {
 		return id;
 	}

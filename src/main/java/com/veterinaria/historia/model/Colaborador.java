@@ -23,6 +23,10 @@ public class Colaborador {
     private Integer documentoIdentificacion;
     
     
+	public Colaborador() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Colaborador(String nombre, String apellido, String cargo, String especialidad, String tipoDocumento,
 			Integer documentoIdentificacion) {
 		super();
