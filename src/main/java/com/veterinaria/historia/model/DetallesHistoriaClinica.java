@@ -30,11 +30,23 @@ public class DetallesHistoriaClinica {
 	private Colaborador colaborador;
 	@ManyToOne
 	@JoinColumn(name = "historia_clinica_id")
-	
+
 	private HistoriaClinica historiaClinica;
-	
-	
-	
+
+	public DetallesHistoriaClinica(String temperatura, double peso, double frecuenciaCardiaca,
+			double frecuenciaRespiratoria, String alimentacion, String habitad, String observacion,
+			Colaborador colaborador, HistoriaClinica historiaClinica) {
+		super();
+		this.temperatura = temperatura;
+		this.peso = peso;
+		this.frecuenciaCardiaca = frecuenciaCardiaca;
+		this.frecuenciaRespiratoria = frecuenciaRespiratoria;
+		this.alimentacion = alimentacion;
+		this.habitad = habitad;
+		this.observacion = observacion;
+		this.colaborador = colaborador;
+		this.historiaClinica = historiaClinica;
+	}
 
 	public Integer getId() {
 		return id;

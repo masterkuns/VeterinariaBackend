@@ -21,6 +21,18 @@ public class Colaborador {
     private String tipoDocumento;
     @Column(name = "documento_identificacion")
     private Integer documentoIdentificacion;
+    
+    
+	public Colaborador(String nombre, String apellido, String cargo, String especialidad, String tipoDocumento,
+			Integer documentoIdentificacion) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.cargo = cargo;
+		this.especialidad = especialidad;
+		this.tipoDocumento = tipoDocumento;
+		this.documentoIdentificacion = documentoIdentificacion;
+	}
 	public Integer getId() {
 		return id;
 	}
