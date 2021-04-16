@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table (name ="colaborador")
 public class Colaborador {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
     private String nombre;
     private String apellido;

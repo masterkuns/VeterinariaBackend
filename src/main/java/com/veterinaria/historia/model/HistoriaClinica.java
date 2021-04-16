@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 @Table(name = "historia_Clinica")
 public class HistoriaClinica {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@OneToOne
 	@JoinColumn(name = "mascota_id")
