@@ -1,6 +1,7 @@
 package com.veterinaria.historia.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,9 @@ public class Usuario {
 	  private Integer usuarioId;
 	  private String nombre;
 	  private String apellido;
+	  @Column(name="tipo_Identificacion")
 	  private String tipoDocumento;
+	  @Column(name="documento_Identificacion")
 	  private Integer documentoIdentificacion;
 	  private String estado;
 	  private String sexo;

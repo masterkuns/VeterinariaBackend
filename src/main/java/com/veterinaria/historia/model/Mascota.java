@@ -18,7 +18,47 @@ public class Mascota {
 	private String nombre;
 	private String raza;
 	@ManyToOne
-	@JoinColumn(name ="id_usuario")
+	@JoinColumn(name ="usuario_id")
 	private Usuario usuario;
 	private String sexo;
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Integer getMascotaId() {
+		return MascotaId;
+	}
+	public void setMascotaId(Integer mascotaId) {
+		MascotaId = mascotaId;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getRaza() {
+		return raza;
+	}
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+	
+	
+	
 }
