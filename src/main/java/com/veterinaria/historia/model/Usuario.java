@@ -12,7 +12,6 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "usuario")
 public class Usuario {
 	@Id
-
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nombre;
@@ -28,7 +27,7 @@ public class Usuario {
 
 	public Usuario() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Usuario(String nombre, String apellido, String tipoDocumento, Integer documentoIdentificacion, String estado,

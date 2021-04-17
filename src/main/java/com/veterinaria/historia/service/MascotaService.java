@@ -75,6 +75,7 @@ public class MascotaService implements MascotaInterface {
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 	@Override
 	public void deleteAllInBatch() {
@@ -108,9 +109,12 @@ public class MascotaService implements MascotaInterface {
 
 	@Override
 	public <S extends Mascota> S save(S entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return mascotaInterface.save(entity);
+
 	}
+public void id(Integer id) {
+        
+    }
 
 	@Override
 	public Optional<Mascota> findById(Integer id) {
@@ -132,7 +136,7 @@ public class MascotaService implements MascotaInterface {
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		mascotaInterface.deleteById(id);
 		
 	}
 

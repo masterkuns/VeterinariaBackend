@@ -1,5 +1,8 @@
 package com.veterinaria.historia.model;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "detalle_historia_clinica")
@@ -20,6 +25,9 @@ public class DetallesHistoriaClinica {
 	private double peso;
 	@Column(name = "frecuencia_cardiaca")
 	private double frecuenciaCardiaca;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date fecha_Hora;
 	@Column(name = "frecuencia_respiratoria")
 	private double frecuenciaRespiratoria;
 	private String alimentacion;
@@ -34,18 +42,17 @@ public class DetallesHistoriaClinica {
 	private HistoriaClinica historiaClinica;
 	
 
-	public DetallesHistoriaClinica() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 
-	public DetallesHistoriaClinica(String temperatura, double peso, double frecuenciaCardiaca,
+
+	public DetallesHistoriaClinica(String temperatura, double peso, double frecuenciaCardiaca, Date fecha_Hora,
 			double frecuenciaRespiratoria, String alimentacion, String habitad, String observacion,
 			Colaborador colaborador, HistoriaClinica historiaClinica) {
 		super();
 		this.temperatura = temperatura;
 		this.peso = peso;
 		this.frecuenciaCardiaca = frecuenciaCardiaca;
+		this.fecha_Hora = fecha_Hora;
 		this.frecuenciaRespiratoria = frecuenciaRespiratoria;
 		this.alimentacion = alimentacion;
 		this.habitad = habitad;
@@ -53,6 +60,27 @@ public class DetallesHistoriaClinica {
 		this.colaborador = colaborador;
 		this.historiaClinica = historiaClinica;
 	}
+
+
+
+	public Date getFecha_Hora() {
+		return fecha_Hora;
+	}
+
+
+
+	public void setFecha_Hora(Date fecha_Hora) {
+		this.fecha_Hora = fecha_Hora;
+	}
+
+
+
+	public DetallesHistoriaClinica() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	public Integer getId() {
 		return id;

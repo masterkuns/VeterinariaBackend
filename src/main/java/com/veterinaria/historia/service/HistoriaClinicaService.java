@@ -22,6 +22,9 @@ public class HistoriaClinicaService implements HistoriaClinicaInterface {
 	public List<HistoriaClinica> findAll() {
 		// TODO Auto-generated method stub
 		return historiaClinicaInterface.findAll();
+	
+		
+		
 	}
 
 	@Override
@@ -92,8 +95,8 @@ public class HistoriaClinicaService implements HistoriaClinicaInterface {
 
 	@Override
 	public <S extends HistoriaClinica> S save(S entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return  historiaClinicaInterface.save(entity);
+	
 	}
 
 	@Override
@@ -116,7 +119,7 @@ public class HistoriaClinicaService implements HistoriaClinicaInterface {
 
 	@Override
 	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
+		historiaClinicaInterface.deleteById(id);
 		
 	}
 

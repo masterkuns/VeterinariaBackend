@@ -1,5 +1,6 @@
 package com.veterinaria.historia.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,30 +14,40 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "historia_Clinica")
 public class HistoriaClinica {
 	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@OneToOne
 	@JoinColumn(name = "mascota_id")
 	private Mascota mascota;
 	@Column(name = "fecha_creacion")
-	@Temporal(TemporalType.TIMESTAMP)
+	 @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="america/bogota")
+	private Timestamp fechaCreacion;
 
-	private Date fechaCreacion;
-
+	public HistoriaClinica(Mascota mascota, Timestamp fechaCreacion) {
+		super();
+		this.mascota = mascota;
+		this.fechaCreacion = fechaCreacion;
+	}
 	public HistoriaClinica() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public HistoriaClinica(Mascota mascota, Date fechaCreacion) {
-		super();
-		this.mascota = mascota;
+	public Timestamp getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Timestamp fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
+
+	
 
 	public Integer getId() {
 		return id;
@@ -52,14 +63,6 @@ public class HistoriaClinica {
 
 	public void setMascota(Mascota mascota) {
 		this.mascota = mascota;
-	}
-
-	public Date getFechaCreacion() {
-		return fechaCreacion;
-	}
-
-	public void setFechaCreacion(Date fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
 	}
 
 }
