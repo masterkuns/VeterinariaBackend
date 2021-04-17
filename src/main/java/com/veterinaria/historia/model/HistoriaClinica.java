@@ -3,6 +3,7 @@ package com.veterinaria.historia.model;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -26,7 +29,9 @@ public class HistoriaClinica {
 	@JoinColumn(name = "mascota_id")
 	private Mascota mascota;
 	@Column(name = "fecha_creacion")
-	 @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="america/bogota")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "America/Bogota")
+	@CreationTimestamp
+
 	private Timestamp fechaCreacion;
 
 	public HistoriaClinica(Mascota mascota, Timestamp fechaCreacion) {
@@ -34,6 +39,7 @@ public class HistoriaClinica {
 		this.mascota = mascota;
 		this.fechaCreacion = fechaCreacion;
 	}
+
 	public HistoriaClinica() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -46,8 +52,6 @@ public class HistoriaClinica {
 	public void setFechaCreacion(Timestamp fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
-
-	
 
 	public Integer getId() {
 		return id;
