@@ -8,6 +8,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -21,6 +24,7 @@ public class Mascota {
 	private String nombre;
 	private String raza;
 	@ManyToOne
+@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	private String sexo;

@@ -16,6 +16,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -27,6 +29,7 @@ public class HistoriaClinica {
 	private Integer id;
 	@OneToOne
 	@JoinColumn(name = "mascota_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
 	private Mascota mascota;
 	@Column(name = "fecha_creacion")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "America/Bogota")
