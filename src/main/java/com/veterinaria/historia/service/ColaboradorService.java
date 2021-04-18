@@ -20,7 +20,7 @@ private ColaboradorInterface colaboradorInterface;
 
 @Override
 public List<Colaborador> findAll() {
-	// TODO Auto-generated method stub
+
 	return colaboradorInterface.findAll();
 }
 
@@ -92,8 +92,8 @@ public Page<Colaborador> findAll(Pageable pageable) {
 
 @Override
 public <S extends Colaborador> S save(S entity) {
-	// TODO Auto-generated method stub
-	return null;
+	return colaboradorInterface.save(entity);
+	
 }
 
 @Override
@@ -116,7 +116,7 @@ public long count() {
 
 @Override
 public void deleteById(Integer id) {
-	// TODO Auto-generated method stub
+	 colaboradorInterface.deleteById(id);
 	
 }
 

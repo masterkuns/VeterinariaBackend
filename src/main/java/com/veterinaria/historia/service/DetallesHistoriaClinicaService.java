@@ -116,7 +116,7 @@ public long count() {
 
 @Override
 public void deleteById(Integer id) {
-	// TODO Auto-generated method stub
+detallesHistoriaClinicaInterface.deleteById(id);
 	
 }
 
