@@ -15,21 +15,26 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "detalle_historia_clinica")
 public class DetallesHistoriaClinica {
 	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String temperatura;
 	private double peso;
 	@Column(name = "frecuencia_cardiaca")
 	private double frecuenciaCardiaca;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date fecha_Hora;
 	@Column(name = "frecuencia_respiratoria")
 	private double frecuenciaRespiratoria;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "America/Bogota")
+	@CreationTimestamp
+	@Column(name = "fecha_hora")
+	private Timestamp fechaHora;
 	private String alimentacion;
 	private String habitad;
 	private String observacion;
@@ -40,19 +45,15 @@ public class DetallesHistoriaClinica {
 	@JoinColumn(name = "historia_clinica_id")
 
 	private HistoriaClinica historiaClinica;
-	
 
-	
-
-
-	public DetallesHistoriaClinica(String temperatura, double peso, double frecuenciaCardiaca, Date fecha_Hora,
+	public DetallesHistoriaClinica(String temperatura, double peso, double frecuenciaCardiaca, Timestamp fecha_Hora,
 			double frecuenciaRespiratoria, String alimentacion, String habitad, String observacion,
 			Colaborador colaborador, HistoriaClinica historiaClinica) {
 		super();
 		this.temperatura = temperatura;
 		this.peso = peso;
 		this.frecuenciaCardiaca = frecuenciaCardiaca;
-		this.fecha_Hora = fecha_Hora;
+		this.fechaHora = fecha_Hora;
 		this.frecuenciaRespiratoria = frecuenciaRespiratoria;
 		this.alimentacion = alimentacion;
 		this.habitad = habitad;
@@ -61,26 +62,18 @@ public class DetallesHistoriaClinica {
 		this.historiaClinica = historiaClinica;
 	}
 
-
-
-	public Date getFecha_Hora() {
-		return fecha_Hora;
-	}
-
-
-
-	public void setFecha_Hora(Date fecha_Hora) {
-		this.fecha_Hora = fecha_Hora;
-	}
-
-
-
 	public DetallesHistoriaClinica() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	public Timestamp getFecha_Hora() {
+		return fechaHora;
+	}
 
+	public void setFecha_Hora(Timestamp fecha_Hora) {
+		this.fechaHora = fecha_Hora;
+	}
 
 	public Integer getId() {
 		return id;

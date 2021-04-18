@@ -92,8 +92,8 @@ public Page<DetallesHistoriaClinica> findAll(Pageable pageable) {
 
 @Override
 public <S extends DetallesHistoriaClinica> S save(S entity) {
-	// TODO Auto-generated method stub
-	return null;
+	return detallesHistoriaClinicaInterface.save(entity);
+	
 }
 
 @Override

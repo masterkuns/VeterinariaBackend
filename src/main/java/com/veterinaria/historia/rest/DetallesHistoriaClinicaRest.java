@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,10 +34,17 @@ public class DetallesHistoriaClinicaRest {
 	private ResponseEntity<DetallesHistoriaClinica>saveDetallesHistoriaClinica(@RequestBody DetallesHistoriaClinica detallesHistoriaClinica){
 		try {
 			DetallesHistoriaClinica detallesHistoriaClinicaGuardado=detallesHistoriaClinicaService.save(detallesHistoriaClinica);
-			 return ResponseEntity.created(new URI("/colaborador"+detallesHistoriaClinica.getId())).body(detallesHistoriaClinicaGuardado);
+			 return ResponseEntity.created(new URI("/detallles"+detallesHistoriaClinica.getId())).body(detallesHistoriaClinicaGuardado);
 		} catch (Exception e) {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
+	}
+	
+	@DeleteMapping (value = "delete/{id}")
+	private ResponseEntity<Boolean> DetallesHistoriaClinica(@PathVariable ("id") Integer id){
+		detallesHistoriaClinicaService.deleteById(id);
+		return ResponseEntity.ok(!(detallesHistoriaClinicaService.findById(id)!=null));
+		
 	}
 	
 }
